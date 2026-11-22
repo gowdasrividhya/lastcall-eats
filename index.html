@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LastCall Eats</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav"><a href="index.html" class="on">Meals</a><a href="bookings.html">My Bookings</a></nav>
+    <p class="brand">LastCall Eats</p>
+    <h1 id="canteen">Loading…</h1>
+    <p id="tagline"></p>
+    <div class="counter">
+      <div><strong id="saved">0</strong><span>meals saved from the bin</span></div>
+      <div><strong id="money">₹0</strong><span>saved by students</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="row">
+        <h2>Available now</h2>
+        <label class="who">Booking as
+          <input id="name" type="text" placeholder="Your name" maxlength="30">
+        </label>
+      </div>
+      <div id="meals" class="grid"></div>
+    </section>
+
+    <section id="ticket" class="ticket" hidden></section>
+
+    <section class="two">
+      <div>
+        <h2>Canteen staff: add a surplus meal</h2>
+        <form id="addForm" class="form">
+          <input name="name" placeholder="Meal name" required>
+          <input name="originalPrice" type="number" min="1" placeholder="Original price (₹)" required>
+          <input name="price" type="number" min="1" placeholder="Discounted price (₹)" required>
+          <input name="quantity" type="number" min="1" placeholder="Portions left" required>
+          <label>Pickup by <input name="pickupBy" type="time" required></label>
+          <button type="submit">Add meal</button>
+          <p id="formMsg" class="msg"></p>
+        </form>
+      </div>
+      <div>
+        <h2>Recent bookings</h2>
+        <ul id="bookings" class="bookings"></ul>
+        <button id="reset" class="reset" type="button">Reset demo data</button>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="checkout" class="modal">
+    <form id="payForm" class="form" autocomplete="off">
+      <h2>Checkout</h2>
+      <div id="orderBox" class="order"></div>
+      <div class="methods">
+        <label><input type="radio" name="method" value="UPI" checked> UPI</label>
+        <label><input type="radio" name="method" value="Card"> Card</label>
+      </div>
+      <div id="upiBox"><input id="upiId" placeholder="UPI ID (example: name@bank)"></div>
+      <div id="cardBox" hidden>
+        <input id="cardNo" inputmode="numeric" placeholder="Card number (16 digits)" maxlength="19">
+        <div class="pair">
+          <input id="cardExp" placeholder="MM/YY" maxlength="5">
+          <input id="cardCvv" type="password" inputmode="numeric" placeholder="CVV" maxlength="3">
+        </div>
+      </div>
+      <p class="demo">Demo payment only. No real money is charged and card details are not saved.</p>
+      <p id="payMsg" class="msg"></p>
+      <div class="actions">
+        <button type="button" id="payCancel" class="ghost">Cancel</button>
+        <button type="submit" id="payBtn">Pay</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

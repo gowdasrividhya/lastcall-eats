@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Bookings | LastCall Eats</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bookings.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav"><a href="index.html">Meals</a><a href="bookings.html" class="on">My Bookings</a></nav>
+    <p class="brand">LastCall Eats</p>
+    <h1>My Bookings</h1>
+    <p>Your meal codes, all in one place.</p>
+  </header>
+
+  <main class="narrow">
+    <section class="lookup">
+      <label>Your name
+        <input id="name" type="text" placeholder="Name you booked with" maxlength="30">
+      </label>
+      <div class="summary">
+        <div><strong id="count">0</strong><span>bookings</span></div>
+        <div><strong id="money">₹0</strong><span>you saved</span></div>
+      </div>
+    </section>
+
+    <div class="tabs">
+      <button class="tab on" data-tab="upcoming">Upcoming</button>
+      <button class="tab" data-tab="past">Past</button>
+    </div>
+    <p id="hint" class="meta"></p>
+    <div id="list" class="tickets"></div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="bookings.js"></script>
+</body>
+</html>
